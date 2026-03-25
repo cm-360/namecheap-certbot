@@ -6,7 +6,7 @@
 }:
 let
   authHook = writeShellScript "auth-hook" ''
-    ${namecheap-hook}/bin/namecheap-hook auth && sleep 30
+    ${namecheap-hook}/bin/namecheap-hook auth && sleep 60
   '';
 
   cleanupHook = writeShellScript "cleanup-hook" ''
