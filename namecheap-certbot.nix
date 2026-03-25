@@ -29,11 +29,11 @@ writeShellApplication {
       esac
     done <<< "$(namecheap-hook login | grep -E '^[A-Z_]+=.*')"
 
-    certbot certonly \
+    certbot "$1" \
       --manual \
       --preferred-challenges=dns \
       --manual-auth-hook ${authHook} \
       --manual-cleanup-hook ${cleanupHook} \
-      "$@"
+      "''${@:2}"
   '';
 }
